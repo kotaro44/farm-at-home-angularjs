@@ -34,7 +34,6 @@ angular.module('fahAngularJS')
           var temp = document.createElement('textarea');
 
           temp.value = window.location.origin + '/#/list/' + $scope.productId;
-          console.log(temp.value);
           temp.setAttribute('readonly', '');
           temp.style.position = 'absolute';
           temp.style.left = '-9999px';
