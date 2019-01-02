@@ -9,7 +9,7 @@
  */
 angular.module('fahAngularJS')
   .service('DataProvider', ['$q', function DataProvider($q) {
-  	var host = window.location.origin + ':3000/';
+  	var host = window.location.origin.replace(/:\d+/, '') + ':3000/';
 
   	function _getData(url, success, error) {
   		var xhr = new XMLHttpRequest();
