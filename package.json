@@ -14,9 +14,9 @@
   },
   "main": "public/index.html",
   "scripts": {
-    "frontend-server": "http-serve ./public -p 80",
-    "backend-server": "fah-backend -p 3000",
-    "start": "npm run backend-server | npm run frontend-server"
+    "frontend": "http-serve ./public -p 8082",
+    "backend": "fah-backend -p 3000",
+    "start": "npm run backend | npm run frontend"
   },
   "dependencies": {
     "farm-at-home-backend": "https://github.com/kotaro44/farm-at-home-backend.git",
