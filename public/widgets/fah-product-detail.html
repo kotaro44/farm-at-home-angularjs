@@ -1,0 +1,61 @@
+<div class="row product-detail" ng-class="{'in-modal': inModal}">
+  <div class="detail-content-wrapper">
+    <div class="detail-content">
+      <div class="detail-name-wrapper">
+        <span ng-if="!vm.isLoading">
+          <span ng-if="!vm.error">
+            <div class="product-detail-name-wrapper">
+              <div class="product-detail-name">{{::vm.product.name || '???'}}</div>
+              <div class="sharable-link" ng-click="vm.copy2clipboard()" ng-class="{'shared': vm.copied}"></div>
+            </div>
+          </span>
+          <span ng-if="vm.error">Error</span>
+        </span>
+        <img ng-if="vm.isLoading" ng-src="{{::vm.loaderSrc}}">
+      </div>
+      <div class="detail-description-wrapper">
+        <span ng-if="!vm.isLoading">
+          <span ng-if="!vm.error">
+            <div class="detail-description">{{::vm.product.description || 'No Description'}}</div>
+            <div class="nutrition-facts-wrapper">
+              <div class="detail-name-wrapper">
+                Nutrition Facts
+              </div>
+              <div class="nutrition-fact" ng-repeat="nutritionFact in vm.product.nutritionFacts track by $index">
+                <span class="nutrition-fact-name">{{nutritionFact.name}}</span>
+                <span>
+                  <span ng-if="nutritionFact.value.value || nutritionFact.value.value === 0">
+                    <span>{{nutritionFact.value.value}}{{nutritionFact.value.unit}}</span>
+                    <span class="nutrition-fact-per">{{nutritionFact.value.per}}</span>
+                  </span>
+                  <span class="nutrition-fact-per" ng-if="!nutritionFact.value.value && nutritionFact.value.value !== 0">
+                    {{nutritionFact.value}}
+                  </span>
+                </span>
+              </div>
+            </div>
+          </span>
+          <span ng-if="vm.error">We are sorry, but we were not able to get data back from the server...</span>
+        </span>
+        <img ng-if="vm.isLoading" ng-src="{{::vm.loaderSrc}}">
+      </div>
+      <div class="detail-price-wrapper">
+        <span ng-if="!vm.isLoading && !vm.error">
+          {{::(vm.product.price | currency:vm.currency:2) || vm.currency + '??'}}
+        </span>
+        <img ng-if="vm.isLoading" ng-src="{{::vm.loaderSrc}}">
+      </div>
+    </div>
+  </div>
+  <div class="detail-image-wrapper">
+    <span ng-if="!vm.isLoading">
+      <span ng-if="!vm.error">
+        <img ng-if="vm.product.image" ng-src="{{::vm.product.image}}" />
+        <img ng-if="!vm.product.image" src="images/u.png" />
+      </span>
+      <img ng-if="vm.error" src="images/e.png" />
+    </span>
+    <img ng-if="vm.isLoading" class="detail-img-placeholer" src="images/p.gif">
+  </div>
+</div>
+

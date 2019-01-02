@@ -1,0 +1,25 @@
+{
+  "name": "farm-at-home-angularjs",
+  "version": "1.0.0",
+  "description": "Sample page of a supermarket build using AngularJS",
+  "license": "ISC",
+  "author": {
+    "name": "Carlos Amilcar Sanchez Rosa",
+    "email": "csanchezrhn@gmail.com",
+    "website": "http://kotaro44.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kotaro44/farm-at-home-angularjs.git"
+  },
+  "main": "public/index.html",
+  "scripts": {
+    "frontend-server": "http-serve ./public -p 80",
+    "backend-server": "fah-backend -p 3000",
+    "start": "npm run backend-server | npm run frontend-server"
+  },
+  "dependencies": {
+    "farm-at-home-backend": "https://github.com/kotaro44/farm-at-home-backend.git",
+    "http-serve": "1.0.1"
+  }
+}

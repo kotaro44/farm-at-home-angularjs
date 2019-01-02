@@ -1,0 +1,24 @@
+<div class="fah-product-wrapper">
+  <div class="box-shadow product-content" ng-if="::product" ng-click="goToProductDetail(product.productId)">
+    <div class="product-name">
+      {{(product.name || '???')}}
+    </div>
+    <div class="product-image">
+      <span>
+        <img ng-if="product.image" ng-src="{{product.image}}">
+        <img ng-if="!product.image" src="images/u.png">
+      </span>
+      <span class="product-price">
+        {{(product.price | currency:currency:2) || currency + '??'}}
+      </span>
+    </div>
+  </div>
+  <div class="box-shadow product-content" ng-if="!product">
+    <div class="product-name">
+      <img src="images/a.gif">
+    </div>
+    <div class="product-image product-placeholder">
+      <img src="images/p.gif">
+    </div>
+  </div>
+</div>
