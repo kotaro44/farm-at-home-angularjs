@@ -17,7 +17,7 @@
       <span fah-product-card="product" on-click="vm.openDetail"></span>
     </span>
   </div>
-  <div ng-if="!(vm.products | filter:vm.search:'name').length" class="error-wrapper">
+  <div ng-if="!vm.isLoading && !(vm.products | filter:vm.search:'name').length" class="error-wrapper">
     <div>No products found!</div>
   </div>
   <div ng-if="!vm.isLoading && vm.error" class="error-wrapper">
